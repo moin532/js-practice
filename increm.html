@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="counter" data-target="400"></div><span>data target</span>
+    <div class="counter" data-target="50"></div><span>happy client</span>
+    <div class="counter" data-target="4000"></div><span>projects</span>
+
+    <script>
+        const counters = document.querySelectorAll('.counter');
+
+        counters.forEach((counter)=>{
+            counter.innerHTML = 0
+                const update=()=>{
+                    const target = counter.getAttribute('data-target');
+
+                    const stringcount = Number(counter.innerHTML);
+
+                    const inc = target / 100;
+
+                    if(stringcount< target){
+                        counter.innerHTML = `${stringcount + inc}`
+                        setTimeout(update,5)
+                    }
+                }
+
+       update()
+        })
+    </script>
+</body>
+</html>
